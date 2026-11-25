@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Nur Pastanesi · WEZ Dortmund</title>
-<meta name="description" content="Nur Pastanesi – Westfalen Einkaufszentrum (WEZ), Kaufland. Taze pastalar, baklava, börek ve sıcak içecekler.">
+<meta name="description" content="Nur Pastanesi – Westfalen Einkaufszentrum (WEZ), Dortmund. Pastalar, baklava, künefe, açık büfe kahvaltı, ızgaralar ve kahveler.">
 <link rel="icon" href="assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -100,25 +100,69 @@ section.block{padding:110px 20px;max-width:1180px;margin:0 auto}
 .feat p{color:var(--ink-2);font-size:.95rem}
 @media (max-width:820px){.features{grid-template-columns:1fr}}
 
+/* highlights */
+.hl{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(230px,1fr);gap:16px;overflow-x:auto;padding:4px 2px 18px;
+  scroll-snap-type:x mandatory;scrollbar-width:thin}
+.hlc{scroll-snap-align:start;background:var(--paper);border:1px solid var(--line);border-radius:24px;overflow:hidden;
+  text-decoration:none;color:inherit;transition:transform .3s,box-shadow .3s;cursor:pointer;text-align:left;font:inherit;padding:0}
+.hlc:hover{transform:translateY(-4px);box-shadow:0 22px 40px -24px rgba(110,29,34,.45)}
+.hlc .ph{aspect-ratio:1;overflow:hidden;background:var(--cream-2)}
+.hlc .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.hlc:hover .ph img{transform:scale(1.06)}
+.hlc .tx{padding:14px 16px 16px;display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.hlc b{font-family:"Playfair Display",serif;font-size:1.05rem}
+.hlc small{display:block;color:var(--ink-2);font-size:.78rem}
+.hlc .pr{color:var(--maroon);font-weight:700;white-space:nowrap}
+
 /* menu */
-.tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:34px}
-.tabs button{border:1px solid var(--line);background:var(--paper);color:var(--ink);font:500 .9rem "DM Sans",sans-serif;
-  padding:10px 16px;border-radius:999px;cursor:pointer;display:flex;align-items:center;gap:8px;transition:all .2s}
-.tabs button svg{width:18px;height:18px}
+.mtools{position:sticky;top:76px;z-index:20;background:var(--cream);padding:12px 0 10px;margin-bottom:22px}
+.search{display:flex;align-items:center;gap:10px;background:var(--paper);border:1px solid var(--line);border-radius:999px;
+  padding:10px 16px;max-width:420px;margin:0 auto 12px}
+.search input{border:0;background:none;outline:none;font:inherit;width:100%;color:var(--ink)}
+.search svg{flex:none;color:var(--ink-2)}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 6px;scrollbar-width:none;
+  mask-image:linear-gradient(90deg,transparent 0,#000 18px,#000 calc(100% - 18px),transparent 100%)}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--paper);color:var(--ink);font:500 .88rem "DM Sans",sans-serif;
+  padding:9px 15px;border-radius:999px;cursor:pointer;transition:all .2s;white-space:nowrap}
+.tabs button span{opacity:.5;font-size:.75rem;margin-left:4px}
 .tabs button[aria-selected="true"]{background:var(--maroon);color:#fff;border-color:var(--maroon)}
-.menu{display:grid;grid-template-columns:repeat(2,1fr);gap:0 46px;background:var(--paper);border:1px solid var(--line);
-  border-radius:28px;padding:22px 40px}
-.item{display:grid;grid-template-columns:1fr auto;gap:2px 16px;padding:18px 0;border-bottom:1px dashed var(--line);
-  animation:rise .45s both}
-.item h4{font-family:"Playfair Display",serif;font-size:1.12rem;font-weight:700}
-.item .de{font-size:.8rem;color:var(--maroon);letter-spacing:.02em}
-.item p{grid-column:1/-1;color:var(--ink-2);font-size:.9rem}
-.item .price{font-weight:700;color:var(--maroon);white-space:nowrap;align-self:start}
-.item .tag{display:inline-block;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;background:var(--heart);color:#fff;
-  border-radius:999px;padding:2px 8px;margin-left:8px;vertical-align:middle;font-family:"DM Sans",sans-serif}
-.menunote{text-align:center;color:var(--ink-2);font-size:.85rem;margin-top:18px}
+.tabs button[aria-selected="true"] span{opacity:.75}
+.cathead{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:6px 4px 14px}
+.cathead h3{font-family:"Playfair Display",serif;font-size:1.7rem}
+.cathead span{color:var(--ink-2);font-size:.9rem}
+.menu{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.item{display:grid;grid-template-columns:96px 1fr auto;gap:4px 16px;align-items:start;background:var(--paper);
+  border:1px solid var(--line);border-radius:20px;padding:12px;animation:rise .45s both}
+.item .ph{grid-row:1/4;width:96px;height:96px;border-radius:14px;overflow:hidden;background:var(--cream-2);display:grid;place-items:center;
+  border:0;padding:0;cursor:zoom-in}
+.item .ph img{width:100%;height:100%;object-fit:cover}
+.item .ph.none{cursor:default}
+.item .ph.none img{width:52%;height:auto;opacity:.35;border-radius:50%}
+.item h4{font-family:"Playfair Display",serif;font-size:1.08rem;font-weight:700;line-height:1.25;padding-top:4px}
+.item .de{font-size:.78rem;color:var(--maroon);letter-spacing:.02em}
+.item p{grid-column:2/-1;color:var(--ink-2);font-size:.85rem;white-space:pre-line}
+.item .price{font-weight:700;color:var(--maroon);white-space:nowrap;padding-top:4px}
+.item .cat{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
+.empty{grid-column:1/-1;text-align:center;color:var(--ink-2);padding:40px}
+.menunote{text-align:center;color:var(--ink-2);font-size:.85rem;margin-top:22px}
 @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-@media (max-width:820px){.menu{grid-template-columns:1fr;padding:10px 22px}}
+@media (max-width:820px){.menu{grid-template-columns:1fr}.mtools{top:70px}}
+@media (max-width:420px){.item{grid-template-columns:78px 1fr auto}.item .ph{width:78px;height:78px}}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:100;background:rgba(30,18,16,.82);display:none;place-items:center;padding:20px;cursor:zoom-out}
+.lb.open{display:grid}
+.lb figure{max-width:min(560px,92vw);background:var(--paper);border-radius:24px;overflow:hidden;animation:rise .3s both}
+.lb img{width:100%;aspect-ratio:1;object-fit:cover}
+.lb figcaption{padding:16px 20px;display:flex;justify-content:space-between;gap:12px;font-family:"Playfair Display",serif;font-size:1.2rem}
+.lb figcaption b{color:var(--maroon);font-family:"DM Sans",sans-serif}
+
+/* card photo */
+.card .shot{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.card .shot img{width:58px;height:58px;border-radius:14px;object-fit:cover;border:2px solid rgba(255,255,255,.35)}
+.card .shot b{font-size:1.25rem}
+.card .shot small{display:block;opacity:.7;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase}
 
 /* order band */
 .band{background:var(--ink);color:var(--paper);border-radius:32px;padding:56px clamp(24px,5vw,64px);display:grid;
@@ -164,6 +208,7 @@ footer img{width:70px;margin:0 auto 14px;border-radius:50%}
   <a class="brand" href="#top"><img src="assets/logo.png" alt="Nur logo"><span><b>Nur</b><small>Pastanesi · WEZ</small></span></a>
   <ul>
     <li><a href="#hakkimizda" data-i18n="nav_about">Hakkımızda</a></li>
+    <li><a href="#favoriler" data-i18n="hl_k">Favoriler</a></li>
     <li><a href="#menu" data-i18n="nav_menu">Menü</a></li>
     <li><a href="#siparis" data-i18n="nav_order">Sipariş</a></li>
     <li><a href="#konum" data-i18n="nav_loc">Konum</a></li>
@@ -179,9 +224,9 @@ footer img{width:70px;margin:0 auto 14px;border-radius:50%}
 <div class="story" id="top">
   <div class="stage">
     <div class="headline" id="headline">
-      <span class="eyebrow" data-i18n="eyebrow">Nur Pastanesi · Dortmund</span>
+      <span class="eyebrow" data-i18n="eyebrow">Nur Pastanesi · Restaurant &amp; Cafe</span>
       <h1><span data-i18n="h1a">Taze fırından,</span><br><em data-i18n="h1b">sevgiyle hazır.</em></h1>
-      <p data-i18n="lead">Her sabah taze pişen pastalar, şerbetli tatlılar ve börekler — Westfalen Einkaufszentrum'da, Kaufland içinde.</p>
+      <p data-i18n="lead">Pastalar, baklava, künefe, açık büfe kahvaltı ve ızgaralar — Dortmund Westfalen Einkaufszentrum'da.</p>
       <a class="btn" href="#menu" data-i18n="cta_discover">Lezzetleri Keşfet</a>
     </div>
 
@@ -190,9 +235,10 @@ footer img{width:70px;margin:0 auto 14px;border-radius:50%}
     <div class="card" id="card">
       <div class="inner">
         <div class="kicker" data-i18n="card_k">Günün Favorisi</div>
-        <h3 data-i18n="card_h">Ev yapımı çilekli pasta</h3>
-        <p data-i18n="card_p">Yumuşacık pandispanya, taze krema ve mevsimin çilekleri. Dilim dilim ya da bütün — sipariş üzerine.</p>
-        <a class="btn light" href="#menu" data-i18n="card_btn">Pastaları Gör</a>
+        <h3 data-i18n="card_h">Mini Çilekli Kalp Pasta</h3>
+        <p data-i18n="card_p">Kalbimizden vitrinimize: çilekli kremasıyla kırmızı kalp pasta. Ve onun gibi 40'tan fazla pasta, magnolia ve cheesecake.</p>
+        <div class="shot"><img src="assets/menu/131.webp" alt=""><div><small data-i18n="card_price">Fiyat</small><b>7,90 €</b></div></div>
+        <a class="btn light" href="#menu" data-cat-link="pastalar" data-i18n="card_btn">Pastaları Gör</a>
       </div>
     </div>
 
@@ -327,9 +373,18 @@ footer img{width:70px;margin:0 auto 14px;border-radius:50%}
     </div>
     <div class="feat reveal">
       <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 21s-6-5.3-6-11a6 6 0 0 1 12 0c0 5.7-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg></div>
-      <h3 data-i18n="f3h">WEZ'de, Kaufland içinde</h3><p data-i18n="f3p">Alışveriş arasında bir çay, bir dilim pasta — Westfalen Einkaufszentrum'da bizi kolayca bulursunuz.</p>
+      <h3 data-i18n="f3h">200'den fazla lezzet</h3><p data-i18n="f3p">Sahanlar, pideler, ızgaralar, pastalar, baklavalar, kahveler — hepsi tek menüde.</p>
     </div>
   </div>
+</section>
+
+<!-- ================= HIGHLIGHTS ================= -->
+<section class="block" id="favoriler" style="padding-top:20px">
+  <div class="sechead reveal">
+    <span class="eyebrow" data-i18n="hl_k">Favoriler</span>
+    <h2 data-i18n="hl_h">En çok sevilenler</h2>
+  </div>
+  <div class="hl reveal" id="hl"></div>
 </section>
 
 <!-- ================= MENU ================= -->
@@ -338,10 +393,17 @@ footer img{width:70px;margin:0 auto 14px;border-radius:50%}
     <span class="eyebrow" data-i18n="menu_k">Menü</span>
     <h2 data-i18n="menu_h">Vitrinimizden</h2>
   </div>
-  <div class="tabs" role="tablist" id="tabs"></div>
+  <div class="mtools">
+    <label class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" autocomplete="off" data-i18n-ph="search" placeholder="Menüde ara: künefe, latte, pide…"></label>
+    <div class="tabs" role="tablist" id="tabs"></div>
+  </div>
+  <div class="cathead"><h3 id="catTitle"></h3><span id="catCount"></span></div>
   <div class="menu" id="menuList" role="tabpanel"></div>
-  <p class="menunote" data-i18n="menu_note">Güncel fiyatlar ve günlük çeşitler için şubemizdeki vitrine göz atın.</p>
+  <p class="menunote" data-i18n="menu_note">Fiyatlar Euro (€) cinsindendir. Görseller temsilidir; güncel çeşitler için vitrinimize göz atın.</p>
 </section>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Ürün görseli"><figure><img alt=""><figcaption><span></span><b></b></figcaption></figure></div>
 
 <!-- ================= ORDER BAND ================= -->
 <section class="block" id="siparis" style="padding-top:20px">
@@ -367,7 +429,8 @@ footer img{width:70px;margin:0 auto 14px;border-radius:50%}
     <div class="panel reveal">
       <h3>Nur Pastanesi · WEZ</h3>
       <dl>
-        <div><dt data-i18n="loc_where">Adres</dt><dd>Westfalen Einkaufszentrum (WEZ)<br>Kaufland · Dortmund</dd></div>
+        <div><dt data-i18n="loc_where">Adres</dt><dd>Westfalen Einkaufszentrum (WEZ)<br>Bornstraße 160 · 44145 Dortmund</dd></div>
+        <div><dt data-i18n="loc_bf">Açık büfe kahvaltı</dt><dd data-i18n="loc_bf_v">Her gün 09:00 – 15:00 · Hafta içi 16,90 € · Hafta sonu ve tatil günleri 18 €</dd></div>
         <div><dt data-i18n="loc_hours">Çalışma saatleri</dt><dd data-i18n="loc_hours_v">Güncel saatler için Google Haritalar'a bakın.</dd></div>
       </dl>
       <div style="display:flex;gap:10px;flex-wrap:wrap">
@@ -385,7 +448,7 @@ footer img{width:70px;margin:0 auto 14px;border-radius:50%}
         </g>
         <circle cx="200" cy="150" r="70" fill="rgba(255,255,255,.06)"/><circle cx="200" cy="150" r="120" fill="none" stroke="rgba(255,255,255,.08)"/>
       </svg>
-      <div class="pin"><img src="assets/logo.png" alt=""><span>WEZ · Kaufland</span></div>
+      <div class="pin"><img src="assets/logo.png" alt=""><span>WEZ · Dortmund</span></div>
     </div>
   </div>
 </section>
@@ -395,124 +458,128 @@ footer img{width:70px;margin:0 auto 14px;border-radius:50%}
   <div>© <span id="yr"></span> Nur Pastanesi · Westfalen Einkaufszentrum, Dortmund</div>
 </footer>
 
+<script src="assets/menu-data.js"></script>
 <script>
-/* ============ MENÜ VERİSİ ============
-   Fiyatları buraya girin: price: "3,50 €". Boş bırakılan fiyat gösterilmez. */
-const MENU = [
-  { id:"pasta", tr:"Pastalar", de:"Torten", icon:"cake", items:[
-    {tr:"Çilekli Pasta", de:"Erdbeertorte", d_tr:"Pandispanya, krema ve taze çilek", d_de:"Biskuit, Sahne und frische Erdbeeren", tag:true, price:""},
-    {tr:"Çikolatalı Pasta", de:"Schokoladentorte", d_tr:"Bitter çikolata ganaj ile", d_de:"Mit Zartbitter-Ganache", price:""},
-    {tr:"Frambuazlı Pasta", de:"Himbeertorte", d_tr:"Ekşi-tatlı frambuaz ve krema", d_de:"Himbeeren und Sahne", price:""},
-    {tr:"Muzlu Pasta", de:"Bananentorte", d_tr:"Muz dilimleri ve vanilyalı krema", d_de:"Bananen und Vanillecreme", price:""},
-    {tr:"Profiterollü Pasta", de:"Profiterol-Torte", d_tr:"Kremalı toplar, sıcak çikolata sos", d_de:"Windbeutel mit Schokosauce", price:""},
-    {tr:"Özel Gün Pastası", de:"Torte auf Bestellung", d_tr:"Doğum günü ve kutlamalar için sipariş", d_de:"Für Geburtstage & Feiern auf Bestellung", price:""}
-  ]},
-  { id:"tatli", tr:"Şerbetli & Sütlü", de:"Süßspeisen", icon:"baklava", items:[
-    {tr:"Fıstıklı Baklava", de:"Pistazien-Baklava", d_tr:"İncecik yufka, bol Antep fıstığı", d_de:"Hauchdünner Teig, viel Pistazie", tag:true, price:""},
-    {tr:"Cevizli Baklava", de:"Walnuss-Baklava", d_tr:"Tereyağlı, çıtır katlar", d_de:"Mit Butter, knusprige Schichten", price:""},
-    {tr:"Şöbiyet", de:"Şöbiyet", d_tr:"Kaymaklı ve fıstıklı", d_de:"Mit Rahm und Pistazien", price:""},
-    {tr:"Kadayıf", de:"Kadayıf", d_tr:"Tel kadayıf, cevizli", d_de:"Engelshaar-Teig mit Walnuss", price:""},
-    {tr:"Fırın Sütlaç", de:"Milchreis", d_tr:"Üstü kızarmış, tarçınlı", d_de:"Überbacken, mit Zimt", price:""},
-    {tr:"Trileçe", de:"Trileçe", d_tr:"Üç sütlü, karamel soslu", d_de:"Drei-Milch-Kuchen mit Karamell", price:""},
-    {tr:"Ekler", de:"Eclair", d_tr:"Kremalı, çikolata kaplı", d_de:"Mit Creme und Schokolade", price:""}
-  ]},
-  { id:"borek", tr:"Börek & Poğaça", de:"Börek & Gebäck", icon:"bread", items:[
-    {tr:"Su Böreği", de:"Su Börek", d_tr:"Peynirli, tereyağlı", d_de:"Mit Käse und Butter", tag:true, price:""},
-    {tr:"Kıymalı Börek", de:"Börek mit Hackfleisch", d_tr:"Baharatlı kıyma iç", d_de:"Würzige Hackfleischfüllung", price:""},
-    {tr:"Ispanaklı Börek", de:"Spinat-Börek", d_tr:"Ispanak ve beyaz peynir", d_de:"Spinat und Schafskäse", price:""},
-    {tr:"Peynirli Poğaça", de:"Poğaça mit Käse", d_tr:"Yumuşak ve sıcak", d_de:"Weich und warm", price:""},
-    {tr:"Zeytinli Poğaça", de:"Poğaça mit Oliven", d_tr:"Siyah zeytinli", d_de:"Mit schwarzen Oliven", price:""},
-    {tr:"Simit", de:"Sesamring", d_tr:"Susamlı, çıtır", d_de:"Knusprig mit Sesam", price:""},
-    {tr:"Açma", de:"Açma", d_tr:"Sade ya da zeytinli", d_de:"Natur oder mit Oliven", price:""}
-  ]},
-  { id:"kahvalti", tr:"Kahvaltı", de:"Frühstück", icon:"egg", items:[
-    {tr:"Kahvaltı Tabağı", de:"Frühstücksteller", d_tr:"Peynir, zeytin, domates, salatalık, bal, tereyağı", d_de:"Käse, Oliven, Tomate, Gurke, Honig, Butter", tag:true, price:""},
-    {tr:"Menemen", de:"Menemen", d_tr:"Domates, biber ve yumurta", d_de:"Tomaten, Paprika und Ei", price:""},
-    {tr:"Sucuklu Yumurta", de:"Ei mit Sucuk", d_tr:"Sahanda, sıcak servis", d_de:"In der Pfanne serviert", price:""},
-    {tr:"Kaşarlı Tost", de:"Käsetoast", d_tr:"Çift kaşarlı", d_de:"Mit doppelt Käse", price:""}
-  ]},
-  { id:"sicak", tr:"Sıcak İçecekler", de:"Heißgetränke", icon:"cup", items:[
-    {tr:"Çay", de:"Türkischer Tee", d_tr:"İnce belli bardakta", d_de:"Im Tulpenglas", tag:true, price:""},
-    {tr:"Türk Kahvesi", de:"Türkischer Mokka", d_tr:"Lokum eşliğinde", d_de:"Mit Lokum", price:""},
-    {tr:"Cappuccino", de:"Cappuccino", d_tr:"", d_de:"", price:""},
-    {tr:"Latte Macchiato", de:"Latte Macchiato", d_tr:"", d_de:"", price:""},
-    {tr:"Sahlep", de:"Salep", d_tr:"Tarçınlı, kış klasiği", d_de:"Mit Zimt, Winterklassiker", price:""},
-    {tr:"Sıcak Çikolata", de:"Heiße Schokolade", d_tr:"", d_de:"", price:""}
-  ]},
-  { id:"soguk", tr:"Soğuk İçecekler", de:"Kaltgetränke", icon:"glass", items:[
-    {tr:"Ayran", de:"Ayran", d_tr:"Köpüklü", d_de:"Schaumig", price:""},
-    {tr:"Ev Yapımı Limonata", de:"Hausgemachte Limonade", d_tr:"Naneli", d_de:"Mit Minze", tag:true, price:""},
-    {tr:"Taze Portakal Suyu", de:"Frischer Orangensaft", d_tr:"", d_de:"", price:""},
-    {tr:"Soğuk Kahve", de:"Eiskaffee", d_tr:"", d_de:"", price:""}
-  ]}
-];
-
-const ICONS = {
-  cake:'<path d="M4 20h16v-7H4z M4 13c2 0 2 1.5 4 1.5S10 13 12 13s2 1.5 4 1.5 2-1.5 4-1.5 M12 9v4 M12 4c1 1.5-1 2 0 3.5"/>',
-  baklava:'<path d="M12 3l8 9-8 9-8-9z M8 12h8 M12 7v10"/>',
-  bread:'<path d="M5 11a7 5 0 0 1 14 0v8H5z M9 11v3 M12 10v4 M15 11v3"/>',
-  egg:'<path d="M12 3c3.5 0 6 5 6 9a6 6 0 0 1-12 0c0-4 2.5-9 6-9z"/><circle cx="12" cy="14" r="2.2"/>',
-  cup:'<path d="M4 9h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z M16 11h2a2 2 0 0 1 0 4h-2 M8 3c1 1.5-1 2 0 3.5 M12 3c1 1.5-1 2 0 3.5"/>',
-  glass:'<path d="M6 4h12l-1.5 16h-9z M6.6 10h10.8"/>'
-};
+/* ============ MENÜ ============
+   Veri: assets/menu-data.js (window.NUR_MENU) — nurpastanesi.com menüsünden. */
+const MENU = (window.NUR_MENU || []).filter(c => c.items && c.items.length);
+const HIGHLIGHTS = ["Acik Büfe Kahvaltı","Mini Cilekli Kalp Pasta","Künefe","Fistikli Baklava","Dubai Magnolia","Izgara Menü","Lahmacun","Türk Kahvesi"];
 
 const T = {
   tr:{nav_about:"Hakkımızda",nav_menu:"Menü",nav_order:"Sipariş",nav_loc:"Konum",cta_menu:"Menüyü Gör",
-    eyebrow:"Nur Pastanesi · Dortmund",h1a:"Taze fırından,",h1b:"sevgiyle hazır.",
-    lead:"Her sabah taze pişen pastalar, şerbetli tatlılar ve börekler — Westfalen Einkaufszentrum'da, Kaufland içinde.",
-    cta_discover:"Lezzetleri Keşfet",bigword:"PASTA",card_k:"Günün Favorisi",card_h:"Ev yapımı çilekli pasta",
-    card_p:"Yumuşacık pandispanya, taze krema ve mevsimin çilekleri. Dilim dilim ya da bütün — sipariş üzerine.",card_btn:"Pastaları Gör",scroll:"Kaydır",
-    about_k:"Hakkımızda",about_h:"Kalpten gelen lezzet",about_p:"Nur Pastanesi, Türk pastaneciliğinin sıcaklığını Dortmund'a taşıyor. Tarifler ustadan, malzemeler her gün taze.",
-    f1h:"Her sabah taze",f1p:"Pastalarımız, böreklerimiz ve poğaçalarımız gün boyu şubemizde fırından çıkar.",
-    f2h:"Sevgiyle hazırlanır",f2p:"Logomuzdaki kalp boşuna değil: her tatlı, kendi sofranıza koyacağınız özenle yapılır.",
-    f3h:"WEZ'de, Kaufland içinde",f3p:"Alışveriş arasında bir çay, bir dilim pasta — Westfalen Einkaufszentrum'da bizi kolayca bulursunuz.",
-    menu_k:"Menü",menu_h:"Vitrinimizden",menu_note:"Güncel fiyatlar ve günlük çeşitler için şubemizdeki vitrine göz atın.",fav:"Favori",
+    eyebrow:"Nur Pastanesi · Restaurant & Cafe",h1a:"Taze fırından,",h1b:"sevgiyle hazır.",
+    lead:"Pastalar, baklava, künefe, açık büfe kahvaltı ve ızgaralar — Dortmund Westfalen Einkaufszentrum'da.",
+    cta_discover:"Lezzetleri Keşfet",bigword:"PASTA",card_k:"Vitrinin yıldızı",card_h:"Mini Çilekli Kalp Pasta",
+    card_p:"Kalbimizden vitrinimize: çilekli kremasıyla kırmızı kalp pasta. Ve onun gibi 40'tan fazla pasta, magnolia ve cheesecake.",card_price:"Fiyat",card_btn:"Pastaları Gör",scroll:"Kaydır",
+    about_k:"Hakkımızda",about_h:"Kalpten gelen lezzet",about_p:"Nur Pastanesi, Türk pastaneciliğinin ve mutfağının sıcaklığını Dortmund'a taşıyor. Sabah kahvaltısından akşam tatlısına kadar.",
+    f1h:"Sınırsız açık büfe",f1p:"Her gün 09:00–15:00 arası sınırsız yiyecek ve içecekle açık büfe kahvaltı.",
+    f2h:"Sevgiyle hazırlanır",f2p:"Logomuzdaki kalp boşuna değil: baklavadan künefeye her tatlı özenle hazırlanır.",
+    f3h:"200'den fazla lezzet",f3p:"Sahanlar, pideler, ızgaralar, pastalar, baklavalar, kahveler — hepsi tek menüde.",
+    hl_k:"Favoriler",hl_h:"En çok sevilenler",
+    menu_k:"Menü",menu_h:"Vitrinimizden",search:"Menüde ara: künefe, latte, pide…",items:"ürün",results:"Arama sonuçları",noresults:"Sonuç bulunamadı.",
+    menu_note:"Fiyatlar Euro (€) cinsindendir. Görseller temsilidir; güncel çeşitler için vitrinimize göz atın.",
     ord_h1:"Doğum günü, nişan, kutlama?",ord_h2:"Pastanız bizden.",ord_p:"Özel gün pastalarınızı ve tepsi tatlılarınızı önceden sipariş verin; isteğinize göre hazırlayalım.",ord_btn:"Şubeye Uğra",
-    loc_k:"Şubemiz",loc_h:"Bizi ziyaret edin",loc_where:"Adres",loc_hours:"Çalışma saatleri",loc_hours_v:"Güncel saatler için Google Haritalar'a bakın.",loc_btn:"Yol Tarifi Al",loc_menu:"Dijital Menü"},
+    loc_k:"Şubemiz",loc_h:"Bizi ziyaret edin",loc_where:"Adres",loc_bf:"Açık büfe kahvaltı",loc_bf_v:"Her gün 09:00 – 15:00 · Hafta içi 16,90 € · Hafta sonu ve tatil günleri 18 €",
+    loc_hours:"Çalışma saatleri",loc_hours_v:"Güncel saatler için Google Haritalar'a bakın.",loc_btn:"Yol Tarifi Al",loc_menu:"Dijital Menü"},
   de:{nav_about:"Über uns",nav_menu:"Speisekarte",nav_order:"Bestellen",nav_loc:"Anfahrt",cta_menu:"Zur Karte",
-    eyebrow:"Nur Pastanesi · Dortmund",h1a:"Frisch aus dem Ofen,",h1b:"mit Liebe gemacht.",
-    lead:"Jeden Morgen frische Torten, Baklava und Börek — im Westfalen Einkaufszentrum, bei Kaufland.",
-    cta_discover:"Jetzt entdecken",bigword:"TORTE",card_k:"Favorit des Tages",card_h:"Hausgemachte Erdbeertorte",
-    card_p:"Luftiger Biskuit, frische Sahne und Erdbeeren der Saison. Als Stück oder ganze Torte — auf Bestellung.",card_btn:"Torten ansehen",scroll:"Scrollen",
-    about_k:"Über uns",about_h:"Genuss von Herzen",about_p:"Nur Pastanesi bringt die Wärme der türkischen Konditorei nach Dortmund. Rezepte vom Meister, Zutaten jeden Tag frisch.",
-    f1h:"Jeden Morgen frisch",f1p:"Torten, Börek und Poğaça kommen den ganzen Tag frisch aus unserem Ofen.",
-    f2h:"Mit Liebe gemacht",f2p:"Das Herz im Logo ist kein Zufall: Jede Süßspeise wird mit Sorgfalt zubereitet.",
-    f3h:"Im WEZ, bei Kaufland",f3p:"Ein Tee, ein Stück Torte zwischendurch — Sie finden uns ganz einfach im Westfalen Einkaufszentrum.",
-    menu_k:"Speisekarte",menu_h:"Aus unserer Vitrine",menu_note:"Aktuelle Preise und Tagesangebote finden Sie an unserer Vitrine.",fav:"Beliebt",
+    eyebrow:"Nur Pastanesi · Restaurant & Café",h1a:"Frisch aus dem Ofen,",h1b:"mit Liebe gemacht.",
+    lead:"Torten, Baklava, Künefe, Frühstücksbuffet und Grillgerichte — im Westfalen Einkaufszentrum Dortmund.",
+    cta_discover:"Jetzt entdecken",bigword:"TORTE",card_k:"Star der Vitrine",card_h:"Mini Erdbeer-Herztorte",
+    card_p:"Von Herzen: rote Herztorte mit Erdbeercreme. Und über 40 weitere Torten, Magnolias und Cheesecakes.",card_price:"Preis",card_btn:"Torten ansehen",scroll:"Scrollen",
+    about_k:"Über uns",about_h:"Genuss von Herzen",about_p:"Nur Pastanesi bringt die Wärme der türkischen Konditorei und Küche nach Dortmund – vom Frühstück bis zum Dessert.",
+    f1h:"Offenes Buffet",f1p:"Täglich 09:00–15:00 Uhr Frühstücksbuffet mit unbegrenzten Speisen und Getränken.",
+    f2h:"Mit Liebe gemacht",f2p:"Das Herz im Logo ist kein Zufall: Von Baklava bis Künefe wird alles mit Sorgfalt zubereitet.",
+    f3h:"Über 200 Spezialitäten",f3p:"Pfannengerichte, Pide, Grill, Torten, Baklava, Kaffee — alles auf einer Karte.",
+    hl_k:"Favoriten",hl_h:"Am beliebtesten",
+    menu_k:"Speisekarte",menu_h:"Aus unserer Vitrine",search:"Suchen: Künefe, Latte, Pide…",items:"Artikel",results:"Suchergebnisse",noresults:"Keine Treffer.",
+    menu_note:"Alle Preise in Euro (€). Abbildungen ähnlich; aktuelle Auswahl an unserer Vitrine.",
     ord_h1:"Geburtstag, Verlobung, Feier?",ord_h2:"Ihre Torte von uns.",ord_p:"Bestellen Sie Festtagstorten und Baklava-Bleche im Voraus — wir machen sie nach Ihrem Wunsch.",ord_btn:"Vorbeikommen",
-    loc_k:"Unsere Filiale",loc_h:"Besuchen Sie uns",loc_where:"Adresse",loc_hours:"Öffnungszeiten",loc_hours_v:"Aktuelle Zeiten finden Sie bei Google Maps.",loc_btn:"Route planen",loc_menu:"Digitale Karte"}
+    loc_k:"Unsere Filiale",loc_h:"Besuchen Sie uns",loc_where:"Adresse",loc_bf:"Frühstücksbuffet",loc_bf_v:"Täglich 09:00 – 15:00 Uhr · Wochentags 16,90 € · Wochenende & Feiertage 18 €",
+    loc_hours:"Öffnungszeiten",loc_hours_v:"Aktuelle Zeiten finden Sie bei Google Maps.",loc_btn:"Route planen",loc_menu:"Digitale Karte"}
 };
 
-let lang = "tr", activeCat = MENU[0].id;
+let lang = "tr", activeCat = (MENU[0]||{}).id, query = "";
 try{ const s = localStorage.getItem("nur-lang"); if(s && T[s]) lang = s; }catch(e){}
 
-function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+const esc = s => String(s ?? "").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const price = p => typeof p === "number" ? p.toFixed(2).replace(".", ",") + " €" : "";
+const norm = s => String(s||"").toLocaleLowerCase("tr").normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/ı/g,"i");
+const desc = it => (lang==="de" ? (it.dde||it.dtr) : (it.dtr||it.dde)).replace(/\s*\|\s*/g,"\n").replace(/\n{2,}/g,"\n").trim();
+const nm = it => lang==="de" ? it.de : it.tr;
+const alt = it => lang==="de" ? it.tr : it.de;
+const ALL = MENU.flatMap(c => c.items.map(it => ({...it, cat:c})));
 
+function itemHTML(it,i,showCat){
+  const ph = it.img
+    ? `<button class="ph" type="button" data-zoom="${esc(it.img)}" data-name="${esc(nm(it))}" data-price="${esc(price(it.p))}" aria-label="${esc(nm(it))}"><img loading="lazy" src="${esc(it.img)}" alt="${esc(nm(it))}"></button>`
+    : `<div class="ph none"><img src="assets/logo.png" alt=""></div>`;
+  const d = desc(it);
+  return `<article class="item" style="animation-delay:${Math.min(i,12)*35}ms">${ph}
+    <div>${showCat?`<div class="cat">${esc(it.cat[lang])}</div>`:""}<h4>${esc(nm(it))}</h4>
+    ${norm(alt(it))!==norm(nm(it))?`<div class="de">${esc(alt(it))}</div>`:""}</div>
+    <div class="price">${price(it.p)}</div>
+    ${d?`<p>${esc(d)}</p>`:""}</article>`;
+}
 function renderTabs(){
-  const el = document.getElementById("tabs");
-  el.innerHTML = MENU.map(c=>`<button role="tab" aria-selected="${c.id===activeCat}" data-cat="${c.id}">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${ICONS[c.icon]}</svg>${esc(c[lang])}</button>`).join("");
+  document.getElementById("tabs").innerHTML = MENU.map(c=>`<button role="tab" type="button" aria-selected="${!query && c.id===activeCat}" data-cat="${c.id}">${esc(c[lang])}<span>${c.items.length}</span></button>`).join("");
 }
 function renderMenu(){
-  const cat = MENU.find(c=>c.id===activeCat), other = lang==="tr"?"de":"tr";
-  document.getElementById("menuList").innerHTML = cat.items.map((it,i)=>{
-    const d = it["d_"+lang];
-    return `<div class="item" style="animation-delay:${i*40}ms">
-      <div><h4>${esc(it[lang])}${it.tag?`<span class="tag">${T[lang].fav}</span>`:""}</h4>
-      ${it[other]!==it[lang]?`<div class="de">${esc(it[other])}</div>`:""}</div>
-      <div class="price">${esc(it.price||"")}</div>
-      ${d?`<p>${esc(d)}</p>`:""}</div>`}).join("");
+  const list = document.getElementById("menuList"), t = T[lang];
+  let items, title;
+  if(query){
+    const q = norm(query);
+    items = ALL.filter(it => norm(it.tr+" "+it.de+" "+it.dtr+" "+it.dde+" "+it.cat.tr+" "+it.cat.de).includes(q));
+    title = t.results;
+  }else{
+    const cat = MENU.find(c=>c.id===activeCat) || MENU[0];
+    items = cat.items.map(it=>({...it,cat})); title = cat[lang];
+  }
+  document.getElementById("catTitle").textContent = title;
+  document.getElementById("catCount").textContent = `${items.length} ${t.items}`;
+  list.innerHTML = items.length ? items.map((it,i)=>itemHTML(it,i,!!query)).join("") : `<div class="empty">${t.noresults}</div>`;
+}
+function renderHighlights(){
+  const el = document.getElementById("hl");
+  el.innerHTML = HIGHLIGHTS.map(n => ALL.find(it => it.tr === n)).filter(Boolean).map(it =>
+    `<button type="button" class="hlc" data-cat="${it.cat.id}"><div class="ph"><img loading="lazy" src="${esc(it.img)}" alt="${esc(nm(it))}"></div>
+     <div class="tx"><div><b>${esc(nm(it))}</b><small>${esc(it.cat[lang])}</small></div><span class="pr">${price(it.p)}</span></div></button>`).join("");
 }
 function applyLang(){
   document.documentElement.lang = lang;
   document.querySelectorAll("[data-i18n]").forEach(n=>{const k=n.dataset.i18n; if(T[lang][k]) n.textContent=T[lang][k];});
+  document.querySelectorAll("[data-i18n-ph]").forEach(n=>{n.placeholder=T[lang][n.dataset.i18nPh];});
   document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed", b.dataset.lang===lang));
+  renderTabs(); renderMenu(); renderHighlights();
+}
+function openCat(id){
+  activeCat = id; query = ""; document.getElementById("q").value = "";
   renderTabs(); renderMenu();
+  const b = document.querySelector(`#tabs [data-cat="${CSS.escape(id)}"]`);
+  if(b) b.scrollIntoView({inline:"center",block:"nearest"});
 }
 document.getElementById("tabs").addEventListener("click",e=>{
   const b = e.target.closest("button[data-cat]"); if(!b) return;
-  activeCat = b.dataset.cat; renderTabs(); renderMenu();
+  openCat(b.dataset.cat);
+  const m = document.getElementById("menu"); if(m.getBoundingClientRect().top < 0) m.scrollIntoView({behavior:"smooth"});
 });
+document.getElementById("hl").addEventListener("click",e=>{
+  const b = e.target.closest("[data-cat]"); if(!b) return;
+  openCat(b.dataset.cat); document.getElementById("menu").scrollIntoView({behavior:"smooth"});
+});
+document.querySelectorAll("[data-cat-link]").forEach(a=>a.addEventListener("click",()=>openCat(a.dataset.catLink)));
+document.getElementById("q").addEventListener("input",e=>{ query = e.target.value.trim(); renderTabs(); renderMenu(); });
+
+/* lightbox */
+const lb = document.getElementById("lb");
+document.getElementById("menuList").addEventListener("click",e=>{
+  const b = e.target.closest("[data-zoom]"); if(!b) return;
+  lb.querySelector("img").src = b.dataset.zoom; lb.querySelector("img").alt = b.dataset.name;
+  lb.querySelector("figcaption span").textContent = b.dataset.name; lb.querySelector("figcaption b").textContent = b.dataset.price;
+  lb.classList.add("open");
+});
+lb.addEventListener("click",()=>lb.classList.remove("open"));
+addEventListener("keydown",e=>{ if(e.key==="Escape") lb.classList.remove("open"); });
+
 document.querySelectorAll(".lang button").forEach(b=>b.addEventListener("click",()=>{
   lang = b.dataset.lang; try{localStorage.setItem("nur-lang",lang)}catch(e){} applyLang();
 }));
